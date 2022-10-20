@@ -16,7 +16,7 @@ public class Product {
         return productName;
     }
 
-    public void setProductName(String productName) {
+    public void setProductName(String productName) throws NullFillingDataException {
         if (productName == null) {
             throw new NullFillingDataException("Заполните карточку товара полностью!");
         }
@@ -27,7 +27,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price) throws NullFillingDataException {
         if (price <= 0.0) {
             throw new NullFillingDataException("Заполните карточку товара полностью!");
         }
@@ -38,7 +38,7 @@ public class Product {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(double weight) throws NullFillingDataException {
         if (weight <= 0.0) {
             throw new NullFillingDataException("Заполните карточку товара полностью!");
         }
@@ -50,9 +50,6 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        if (productName.equals(product.productName)) {
-            throw new DuplicateProductException("Нельзя добавить уже имеющийся продукт!");
-        }
         return productName.equals(product.productName);
     }
 

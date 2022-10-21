@@ -4,15 +4,15 @@ import java.util.Set;
 
 public class Main {
 
-    public static void addProducts(Product product, Set<Product> Set) throws DuplicateProductException {
-        Iterator<Product> it = Set.iterator();
+    public static void addProducts(Product product, Set<Product> set) throws DuplicateProductException {
+        Iterator<Product> it = set.iterator();
         while (it.hasNext()) {
             Product product2 = it.next();
             if (product.getProductName().equals(product2.getProductName())) {
                 throw new DuplicateProductException("Нельзя добавить уже имеющийся продукт!");
             }
         }
-        Set.add(product);
+        set.add(product);
     }
 
     public static void main(String[] args) throws NullFillingDataException, DuplicateProductException {
